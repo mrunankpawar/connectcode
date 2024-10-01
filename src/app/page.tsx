@@ -51,7 +51,7 @@ export default function Home() {
   };
 
   return (
-    <div className="text-center m-10 flex flex-col items-center justify-center min-h-screen bg-[url('/magicgrid.png')] bg-cover bg-fixed bg-center">
+    <div className="text-center m-10 flex flex-col items-center justify-center min-h-screen bg-[url('/magicgrid2.png')] bg-cover bg-fixed bg-center">
     {/* <div className="relative text-center m-10 flex flex-col items-center justify-center min-h-screen bg-[url('/magicgrid.png')] bg-cover bg-fixed bg-center after:absolute after:inset-0 after:bg-black after:bg-opacity-50"> */}
       <h1 className="text-4xl font-bold text-emerald-300 m-4">
         ConnectCode Wallpaper
