@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 
-const wallpapers = ["/wp1.png", "/wp2.png", "/wp3.png"];
+const wallpapers = ["/wp1.png", "/wp2.png", "/wp3.png", "/lnkdin1.png", "/lnkdin2.png", "/lnkdin3.png"];
 
 export default function Home() {
   const [url, setUrl] = useState("");
@@ -12,9 +12,9 @@ export default function Home() {
     setUrl(e.target.value);
   };
 
-  const handleWallpaperChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedWallpaper(e.target.value);
-  };
+  // const handleWallpaperChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   setSelectedWallpaper(e.target.value);
+  // };
 
   const downloadImage = () => {
     const canvas = document.createElement("canvas");
@@ -44,52 +44,44 @@ export default function Home() {
       }
 
       const link = document.createElement("a");
-      link.download = "peerlist-wallpaper.png";
+      link.download = "connect-code-wallpaper.png";
       link.href = canvas.toDataURL();
       link.click();
     };
   };
 
   return (
-    <div className="text-center m-10 flex flex-col items-center justify-center min-h-screen bg-[url('/magicgrid2.png')] bg-cover bg-fixed bg-center">
-    {/* <div className="relative text-center m-10 flex flex-col items-center justify-center min-h-screen bg-[url('/magicgrid.png')] bg-cover bg-fixed bg-center after:absolute after:inset-0 after:bg-black after:bg-opacity-50"> */}
-      <h1 className="text-4xl font-bold text-emerald-300 m-4">
-        ConnectCode Wallpaper
+    <div className="text-center p-10 flex flex-col items-center justify-center min-h-screen bg-[url('/magicgrid8.png')] bg-cover bg-fixed bg-center space-y-8">
+      {/* <h1 className="text-4xl font-bold text-[#10B981] m-4"> */}
+      <h1 className="text-4xl font-bold text-[#059669] m-4">
+        ConnectCode Wallpaper📱
       </h1>
 
-      <p className="text-lg text-gray-300 mb-8">
-        Create your personalized wallpaper with a QR code linking to your
-        Peerlist or LinkedIn profile.
+      <p className="text-lg text-[#F5F5F5] mb-8 sm:max-w-[60%]">
+      Create a personalized wallpaper featuring a QR code that links directly to your Peerlist or LinkedIn profile.
       </p>
+    
 
       <div className="flex flex-col items-center space-y-4">
         <input
           type="text"
           value={url}
           onChange={handleUrlChange}
-          placeholder="Enter Peerlist URL"
-          className="bg-slate-950 no-underline group cursor-pointer relative shadow-2xl rounded-lg text-md font-normal text-white border-2 border-emerald-400/50 px-4 py-2 w-80"
+          placeholder="Enter your profile URL"
+          className=" no-underline group cursor-pointer relative shadow-2xl rounded-lg text-md font-normal border-2 px-4 py-2 w-80 bg-[#2D2F36] text-[#F5F5F5] border-[#38BDF8]/50"
         />
 
-        <select
-          value={selectedWallpaper}
-          onChange={handleWallpaperChange}
-          className="bg-slate-950 cursor-pointer relative rounded-lg text-md font-normal text-white border-2 border-emerald-400/50 px-4 py-2 w-80 appearance-none focus:outline-none"
-        >
-          {wallpapers.map((wallpaper, index) => (
-            <option key={index} value={wallpaper}>
-              Wallpaper {index + 1}
-            </option>
-          ))}
-        </select>
+<h2 className="text-xl text-[#10B981] mb-4">
+        Select a Wallpaper
+      </h2>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 m-10">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
         {wallpapers.map((wallpaper, index) => (
           <div
             key={index}
             onClick={() => setSelectedWallpaper(wallpaper)}
-            className={`cursor-pointer p-2 border-2 rounded-lg transition-transform transform ${
-              selectedWallpaper === wallpaper ? "border-emerald-400/50 scale-105" : "border-transparent"
+            className={`cursor-pointer border-2 p-0.5 rounded-lg transition-transform transform ${
+              selectedWallpaper === wallpaper ? "border-[#10B981] scale-105" : "border-transparent"
             }`}
           >
             <img src={wallpaper} alt={`Wallpaper ${index + 1}`} className="w-24 h-48 rounded-lg" />
@@ -99,12 +91,12 @@ export default function Home() {
       </div>
 
       <div id="qrCodeCanvas" className="flex justify-center items-center my-10">
-        <QRCodeCanvas value={url || "https://peerlist.io"} size={150} />{" "}
+        <QRCodeCanvas value={url || "https://peerlist.io/mrunank"} size={150} className="shadow-lg p-4 border-2 border-[#38BDF8]/50 rounded-md transition-opacity duration-500 ease-in-out" />{" "}
       </div>
 
       <button
         onClick={downloadImage}
-        className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-md font-semibold leading-6  text-white inline-block"
+        className="bg-[#2D2F36] no-underline group cursor-pointer relative shadow-2xl hover:from-[#38BDF8] hover:to-[#10B981] rounded-full p-px text-md font-semibold leading-6  text-white inline-block"
       >
         <span className="absolute inset-0 overflow-hidden rounded-full">
           <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -129,6 +121,11 @@ export default function Home() {
         </div>
         <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
       </button>
+      <footer className="text-[#F5F5F5]/[0.4] text-center pt-10 mt-10">
+      <p className="text-sm">
+        Developed with ❤️ by Mrunank
+      </p>
+    </footer>
     </div>
   );
 }
