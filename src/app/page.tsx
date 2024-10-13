@@ -99,7 +99,7 @@ export default function Home() {
       </ul>
 
       <p className="italic text-center mt-6 text-indigo-300 text-xs md:text-sm lg:text-base">
-        💡 iPhone user? <br /> Create a Focus mode called <strong>Events</strong> and set the downloaded wallpaper. Activate it at conferences and you're all set! 📱✨
+        💡 iPhone user? <br /> Create a Focus mode called <strong>Events</strong> and set the downloaded wallpaper. Activate it at conferences and you&apos;re all set! 📱✨
       </p>
 
       <button
