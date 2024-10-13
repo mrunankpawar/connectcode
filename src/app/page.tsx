@@ -171,19 +171,44 @@ export default function Home() {
       </div>
 
       <footer className="text-white/[0.4] text-center pt-10 mt-10 z-10">
-        <button
-          onClick={() => {
-            const tweetText = `Hey, I just tried out this project by @MrunankPawar! Check it out here: ${window.location.href}`;
-            const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-              tweetText
-            )}`;
-            window.open(tweetUrl, "_blank");
-          }}
-          className="bg-indigo-800 text-white px-4 py-2 rounded-md mt-4 transition-all duration-300 hover:bg-indigo-900 mb-8 z-10"
-        >
-          Share on Twitter
-        </button>
-        <p className="text-lg">Developed with ❤️ by Mrunank</p>
+        {/* <div className="flex space-x-4 mb-4"> */}
+          <button
+            onClick={() => {
+              const tweetText = `Hey, I just tried out this project by @MrunankPawar! Check it out here: ${window.location.href}`;
+              const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+                tweetText
+              )}`;
+              window.open(tweetUrl, "_blank");
+            }}
+            className="bg-indigo-800 font-semibold text-white px-4 py-2 rounded-md transition-all duration-300 hover:bg-indigo-900 z-10 mb-4"
+          >
+            Share on Twitter
+          </button>
+
+          {/* <button
+            onClick={() => {
+              const postText = `Hey, I just tried out this project by @MrunankPawar! Check it out here: ${window.location.href}`;
+              const peerlistUrl = `https://peerlist.io/scroll/compose?text=${encodeURIComponent(
+                postText
+              )}`;
+              window.open(peerlistUrl, "_blank");
+            }}
+            className="bg-green-500 font-semibold text-black px-4 py-2 rounded-md transition-all duration-300 hover:bg-green-600 z-10"
+          >
+            Share on Peerlist Scroll
+          </button> */}
+        {/* </div> */}
+
+        <p className="text-lg">
+          Developed with ❤️ by{" "}
+          <a
+            href="https://peerlist.io/mrunank/"
+            target="_blank"
+            className="text-indigo-500/[0.7] underline"
+          >
+            Mrunank Pawar
+          </a>
+        </p>
       </footer>
     </div>
   );
