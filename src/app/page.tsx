@@ -14,6 +14,7 @@ const wallpapers = [
 export default function Home() {
   const [url, setUrl] = useState("");
   const [selectedWallpaper, setSelectedWallpaper] = useState(wallpapers[0]);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUrl(e.target.value);
@@ -53,6 +54,14 @@ export default function Home() {
     };
   };
 
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div className="relative text-center p-10 flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-indigo-900 to-black text-white space-y-8 overflow-hidden">
       <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-b from-white to-indigo-400 text-transparent bg-clip-text mt-4 z-10">
@@ -63,6 +72,45 @@ export default function Home() {
         Create a personalized wallpaper featuring a QR code that links directly
         to your Peerlist or LinkedIn profile.
       </p>
+
+      <button
+  onClick={openModal}
+  className="bg-indigo-600 text-white px-4 py-1 border border-white/[0.3] font-normal rounded-lg hover:bg-indigo-700 transition-all duration-300 z-10"
+>
+  How to use ConnectCode
+</button>
+
+{isOpen && (
+  <div className="fixed inset-0 flex items-center justify-center z-50">
+    <div
+      className="fixed inset-0 bg-black bg-opacity-50"
+      onClick={closeModal}
+    ></div>
+
+    <div className="bg-gradient-to-b from-indigo-900 to-black rounded-lg border border-indigo-300/[0.8] w-11/12 max-w-xs md:max-w-md lg:max-w-lg p-6 z-20 relative text-white">
+      <h2 className="text-lg md:text-xl lg:text-2xl font-semibold mb-4">
+        How to use ConnectCode
+      </h2>
+      <ul className="list-disc list-inside space-y-2 text-indigo-200 text-xs md:text-sm lg:text-base text-left">
+        <li>Enter your profile URL to generate a QR code.</li>
+        <li>Select a custom wallpaper from the available options.</li>
+        <li>Download the personalized wallpaper with your QR code.</li>
+        <li>Scan the QR code to access the profile directly.</li>
+      </ul>
+
+      <p className="italic text-center mt-6 text-indigo-300 text-xs md:text-sm lg:text-base">
+        💡 iPhone user? <br /> Create a Focus mode called <strong>Events</strong> and set the downloaded wallpaper. Activate it at conferences and you're all set! 📱✨
+      </p>
+
+      <button
+        onClick={closeModal}
+        className="bg-gradient-to-r from-indigo-500 to-indigo-700 text-white text-xs md:text-sm lg:text-base px-3 py-0.5 rounded-lg mt-6 hover:from-indigo-400 hover:to-indigo-600 transition-all duration-300 shadow-lg"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+)}
 
       <div className="flex flex-col items-center space-y-4 z-10">
         <h2 className="text-xl font-semibold text-indigo-200">🔗 + 📱 = ✨</h2>
