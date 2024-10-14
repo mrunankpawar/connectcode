@@ -64,6 +64,8 @@ export default function Home() {
 
   return (
     <div className="relative text-center p-10 flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-indigo-900 to-black text-white space-y-8 overflow-hidden">
+      
+
       <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-b from-white to-indigo-400 text-transparent bg-clip-text mt-4 z-10">
         ConnectCode Wallpaper
       </h1>
